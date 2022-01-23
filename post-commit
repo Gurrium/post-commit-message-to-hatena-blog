@@ -1,0 +1,1 @@
+curl -X POST -u $HATENA_ID:$HATENA_BLOG_API_KEY https://blog.hatena.ne.jp/$HATENA_ID/$HATENA_BLOG_ID/atom/entry -H 'Content-type: text/xml' -d "$(./.git/hooks/xml_builder.rb)"
