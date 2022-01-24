@@ -1,0 +1,4 @@
+#!/bin/zsh
+cp post-commit $(dirname $0)/.git/hooks
+cp xml_builder.rb $(dirname $0)/.git/hooks
+chmod 755 $(dirname $0)/.git/hooks/post-commit $(dirname $0)/.git/hooks/xml_builder.rb
