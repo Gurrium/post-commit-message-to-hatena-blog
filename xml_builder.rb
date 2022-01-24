@@ -3,7 +3,7 @@ require 'git'
 
 last_commit = Git.open(File.expand_path(__dir__ + '/../../')).log.first
 
-raw_title, raw_categories, raw_body = last_commit.message.match(/(.*?)(?:\r?\n)+(.*?)(?:\r?\n)+(.*)/m).captures
+raw_title, raw_categories, raw_body = last_commit.message.match(/\[post\](.*?)(?:\r?\n)+(.*?)(?:\r?\n)+(.*)/m).captures
 
 title = raw_title.strip
 is_draft = title.start_with?('x')

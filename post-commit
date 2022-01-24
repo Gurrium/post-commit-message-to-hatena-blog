@@ -1,1 +1,8 @@
-curl -X POST -u $HATENA_ID:$HATENA_BLOG_API_KEY https://blog.hatena.ne.jp/$HATENA_ID/$HATENA_BLOG_ID/atom/entry -H 'Content-type: text/xml' -d "$(./.git/hooks/xml_builder.rb)"
+if git log -1 HEAD --format=%B | head -n 1 | grep -e '\[post\]'; then
+  curl -X POST \
+       -u $HATENA_ID:$HATENA_BLOG_API_KEY \
+       -H 'Content-type: text/xml' \
+       -d "$($(dirname $0)/xml_builder.rb)" \
+       https://blog.hatena.ne.jp/$HATENA_ID/$HATENA_BLOG_ID/atom/entry
+fi
+
